@@ -59,3 +59,9 @@ Test:
 ```bash
 ./7-edges.py
 ```
+## [8-concat_edges.py](./8-concat_edges.py)
+> More slicing
+Test:
+```bash
+./8-concat_edges.py
+```
