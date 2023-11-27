@@ -66,3 +66,10 @@ Test:
 ```bash
 ./8-concat_edges.py
 ```
+
+## [9-easter_egg.py](./9-easter_egg.py)
+> Python script that prints “The Zen of Python”, by TimPeters. `import this`
+Test:
+```bash
+./9-easter_egg.py
+```
