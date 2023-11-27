@@ -31,3 +31,10 @@ Test:
 ```bash
 ./3-print_number.py
 ```
+
+## [4-print_float.py](./4-print_float.py)
+> print the float stored in the variable number with a precision of 2 digits.
+Test:
+```bash
+./4-print_float.py
+```
