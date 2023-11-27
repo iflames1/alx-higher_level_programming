@@ -38,3 +38,10 @@ Test:
 ```bash
 ./4-print_float.py
 ```
+
+## [5-print_string.py](./5-print_string.py)
+> print 3 times a string stored in the variable str, followed by its first 9 characters.
+Test:
+```bash
+./5-print_string.py
+```
