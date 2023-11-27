@@ -45,3 +45,10 @@ Test:
 ```bash
 ./5-print_string.py
 ```
+
+## [6-concat.py](./6-concat.py)
+> Concatenate and print a string
+Test:
+```
+./6-concat.py
+```
