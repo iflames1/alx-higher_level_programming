@@ -17,3 +17,10 @@ Test:
 export PYCODE='print(f"Best School: {88+10}")'
 ./1-run_inline
 ```
+
+## [3-print_number.py](./3-print_number.py)
+> Print 98 Battery street
+Test:
+```bash
+./3-print_number.py
+```
