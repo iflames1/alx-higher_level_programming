@@ -73,3 +73,16 @@ Test:
 ```bash
 ./9-easter_egg.py
 ```
+
+## [10-check_cycle.c](./10-check_cycle.c)
+>
+
+### [100-write.py](./100-write.py)
+> Python script that prints exactly `and that piece of art is useful - Dora Korpar, 2015-10-19`.
+	- Use the function `write` from the `sys` module
+	- exit with the status code `1`
+Test:
+```bash
+./100-write.py
+echo $?
+```
