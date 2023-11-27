@@ -20,3 +20,13 @@ export PYCODE='print(f"Best School: {88+10}")'
 
 ## [2-print.py](./2-print.py)
 > Python script that prints exactly `"Programming is like building a multilingual puzzle` using the `print` function.
+```bash
+./2-print.py
+```
+
+## [3-print_number.py](./3-print_number.py)
+> Print 98 Battery street
+Test:
+```bash
+./3-print_number.py
+```
