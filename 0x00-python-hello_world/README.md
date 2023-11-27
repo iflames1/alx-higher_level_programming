@@ -49,6 +49,13 @@ Test:
 ## [6-concat.py](./6-concat.py)
 > Concatenate and print a string
 Test:
-```
+```bash
 ./6-concat.py
+```
+
+## [7-edges.py](./7-edges.py)
+> Implementation string slicing
+Test:
+```bash
+./7-edges.py
 ```
