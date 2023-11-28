@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 -m py_compile "$PYFILE" && mv __pycache__/"$(basename "$PYFILE" .py)"* "$PYFILE"c && rmdir __pycache__ 2>/dev/null || true
