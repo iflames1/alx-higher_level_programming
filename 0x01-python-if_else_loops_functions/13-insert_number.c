@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 /**
- * insert_node - function that inserts a number into a sorted singly linked list.
+ * insert_node - function that inserts a number into
+ *	a sorted singly linked list.
  * @head: head
  * @number: number
  * Return: new node or NULL if failed
