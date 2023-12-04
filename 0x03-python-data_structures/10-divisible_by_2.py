@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
 def divisible_by_2(my_list=[]):
-    bool_list = my_list[:]
-    if bool_list:
-        for i in bool_list:
-            if bool_list[i] % 2 == 0:
-                bool_list[i] = True
+    bool_list = []
+    if my_list:
+        for i in my_list:
+            if i % 2 == 0:
+                bool_list = bool_list + [True]
             else:
-                bool_list[i] = False
+                bool_list = bool_list + [False]
 
         return bool_list
