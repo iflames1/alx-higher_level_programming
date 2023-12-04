@@ -15,5 +15,3 @@ def print_matrix_integer(matrix=[[]]):
         j += 1
         print("{} ".format(i), end="")
     print()
-
-
