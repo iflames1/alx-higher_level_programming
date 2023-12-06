@@ -2,13 +2,5 @@
 
 def square_matrix_simple(matrix=[]):
     if matrix:
-        def square(x):
-            return x * x
-        new_matrix = [[square(element) for element in row] for row in matrix]
-        '''
-		new_matrix = []
-		for row in matrix:
-			new_row = [square(element) for element in row]
-			new_matrix.append(new_row)
-		'''
+        new_matrix = [[element ** 2 for element in row] for row in matrix]
         return new_matrix
