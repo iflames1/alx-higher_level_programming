@@ -53,6 +53,9 @@ int is_palindrome(listint_t **head)
 	start_2 = split_list(fast, slow);
 	start_2 = reverse(start_2);
 
+	if (*head == NULL)
+		return (1);
+
 	while (start_2 != NULL && *head != NULL)
 	{
 		if (start_2->n != (*head)->n)
