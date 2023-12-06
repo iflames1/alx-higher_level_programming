@@ -50,11 +50,12 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *fast = *head, *slow = *head, *start_2 = NULL;
 
+	if (*head == NULL)
+		return (1);
+
 	start_2 = split_list(fast, slow);
 	start_2 = reverse(start_2);
 
-	if (*head == NULL)
-		return (1);
 
 	while (start_2 != NULL && *head != NULL)
 	{
