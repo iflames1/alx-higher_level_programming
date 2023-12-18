@@ -10,4 +10,7 @@
 > List and Tuples in python.
 
 ## [0x04. Python - More Data Structures](./0x04-python-more_data_structures/README.md)
-> 
+>  
+
+## [0x05. Python - Exceptions](./0x05-python-exceptions/README.md)
+>
