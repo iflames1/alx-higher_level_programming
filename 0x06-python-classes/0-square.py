@@ -4,7 +4,7 @@
 
 class Square:
     """
-    This is the square class.
+    class Square that defines a square
 
     Attributes:
         No attributes currently defined.
