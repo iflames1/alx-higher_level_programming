@@ -13,6 +13,7 @@ class Square:
         __position (tuple, optional): Private instance attribute representing
         the position of the square.
     """
+
     def __init__(self, size=0, position=(0, 0)):
         """
         Initializes a new instance of the Square class.
@@ -23,8 +24,8 @@ class Square:
             TypeError: If size is not an integer.
             ValueError: If size is less than 0.
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -78,12 +79,12 @@ class Square:
             TypeError: If tuple is not two positive integer
 
         """
-        if not isinstance(value, tuple) or len(value) != 2:
+        if len(value) != 2 or type(value) != tuple:
             raise TypeError("position must be a tuple of 2 positive integers")
-        for i in value:
-            if not isinstance(i, int) or i < 0:
-                raise TypeError("position must be a tuple of"
-                                " 2 positive integers")
+        if type(value[0]) != int or value[0] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if type(value[1]) != int or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
