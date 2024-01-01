@@ -20,9 +20,7 @@ class Square:
 
         Args:
             size (int, optional): Size of the square. Default to 0.
-        Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is less than 0.
+            position (tuple, optional): coordinate position.
         """
         self.size = size
         self.position = position
