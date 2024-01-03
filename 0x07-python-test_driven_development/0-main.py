@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+import sys
+sys.path.append('..')
+
 add_integer = __import__('0-add_integer').add_integer
 
 print(add_integer(1, 2))
