@@ -1,0 +1,44 @@
+===================
+add_integer doctest
+===================
+
+``add_integer()`` returns the addition of its argument
+and 98 if only the first argument is passed.
+::
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Numbers
+=======
+when only the first argument is passed the second is set to 98
+::
+    >>> add_integer(0)
+    98
+    >>> add_integer(0, 0)
+    0
+    >>> add_integer(4, 6)
+    10
+    >>> add_integer(-5, 5)
+    0
+    >>> add_integer(-5, -5)
+    -10
+
+floating point numbers are converted to a whole integer.
+::
+    >>> add_integer(0.5, 2.0)
+    2
+
+Non-Numbers
+===========
+Raises a TypeError for Non-Number
+::
+    >>> add_integer('a', 'b')
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer([1], [2])
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+    >>> add_integer('a', 2)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
