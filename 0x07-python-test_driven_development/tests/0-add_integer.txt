@@ -2,7 +2,7 @@
 add_integer doctest
 ===================
 
-``add_integer()`` returns the addition of its argument
+``add_integer(a, b=98)`` returns the addition of its argument
 and 98 if only the first argument is passed.
 ::
     >>> add_integer = __import__('0-add_integer').add_integer

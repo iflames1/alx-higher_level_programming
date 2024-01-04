@@ -9,11 +9,13 @@ def matrix_divided(matrix, div):
         matrix: a list of two list of integer or float
         div: the divisor
     Raises:
-        TypeError: if matrix isn't list of list(s), if row in matrix isn't list
-            if div is not int or float.
+        TypeError:
+            - if matrix isn't list of list(s)
+            - if row in matrix isn't list
+            - if div is not int or float.
         ZeroDivisionError: if div is 0
 
-    Returns (int): Division of list in matrix
+    Returns (list): Division of list in matrix
     """
     if not all(isinstance(row, list) and all(isinstance(num, (int, float))
                                              for num in row) for row in matrix):
@@ -28,6 +30,6 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    result = [[round(num / div, 2) for num in matrix]]
+    result = [[round(num / div, 2) for num in row] for row in matrix]
 
     return result
