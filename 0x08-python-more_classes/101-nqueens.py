@@ -18,24 +18,24 @@ def is_safe(board, row, col, N):
     return True
 
 
-def print_board(board, N):
-    for i in range(N):
-        for j in range(N):
-            print(board[i][j], end=" ")
-        print()
+def print_board(queens):
+    for queen in queens:
+        print(queen, end=" ")
+    print()
 
 
-def solve_nqueens(board, col, N):
+def solve_nqueens(board, col, N, queens):
     if col == N:
-        print_board(board, N)
-        print()
+        print_board(queens)
         return
 
     for i in range(N):
         if is_safe(board, i, col, N):
             board[i][col] = 1
-            solve_nqueens(board, col + 1, N)
+            queens.append([i, col])
+            solve_nqueens(board, col + 1, N, queens)
             board[i][col] = 0
+            queens.pop()
 
 
 def nqueens(N):
@@ -48,7 +48,8 @@ def nqueens(N):
         sys.exit(1)
 
     board = [[0 for _ in range(N)] for _ in range(N)]
-    solve_nqueens(board, 0, N)
+    queens = []
+    solve_nqueens(board, 0, N, queens)
 
 
 if __name__ == "__main__":
