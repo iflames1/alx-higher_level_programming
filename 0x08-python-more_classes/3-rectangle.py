@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" defines a rectangle class based on 0-rectangle.py. """
+""" defines a rectangle class based on 2-rectangle.py. """
 
 
 class Rectangle:
@@ -56,3 +56,31 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """
+        Args:
+            self:
+
+        Returns (int): area of rectangle.
+        """
+        return self.__width * self.__height
+
+    def perimeter(self):
+        """
+        Args:
+            self:
+
+        Returns: perimeter of rectangle
+        """
+        if self.width == 0 or self.height == 0:
+            return 0
+        return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """ Prints the rectangle using '#' characters.
+        Returns:
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        return "\n".join(["#" * self.__width] * self.__height)
