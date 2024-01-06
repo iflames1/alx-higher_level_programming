@@ -1,0 +1,29 @@
+===========
+say_my_name
+===========
+
+``say_my_name(first_name, last_name="")`` prints My name is <first name> <last name>.
+::
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Strings
+=======
+::
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+    >>> say_my_name("", "Smith")
+    My name is  Smith
+    >>> say_my_name("Bob") #doctest: +NORMALIZE_WHITESPACE
+    My name is Bob
+
+Non Strings
+===========
+Raises a TypeError when first_name or last_name is not a string
+::
+    >>> say_my_name(2, 3)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(["str"], ["str_1"])
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
