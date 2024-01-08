@@ -26,3 +26,6 @@
 
 ## [0x09. Python - Everything is object](./0x09-python-everything_is_object/README.md)
 >
+
+## [0x0A. Python - Inheritance](./0x0A-python-inheritance/README.md)
+>
