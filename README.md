@@ -29,3 +29,5 @@
 
 ## [0x0A. Python - Inheritance](./0x0A-python-inheritance/README.md)
 >
+
+## [0x0B. Python - Input/Output](./0x0B-python-input_output/README.md)
