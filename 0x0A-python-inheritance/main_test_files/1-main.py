@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-sys.path.append('.')
+sys.path.append('..')
 
 MyList = __import__('1-my_list').MyList
 

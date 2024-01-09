@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-sys.path.append('.')
+sys.path.append('..')
 
 lookup = __import__('0-lookup').lookup
 
