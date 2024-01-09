@@ -31,3 +31,110 @@ BaseGeometry doctest
 	...     print("[{}] {}".format(e.__class__.__name__, e))
 	...
 	[ValueError] <name> must be greater than 0
+# TESTS/7-base_geometry.py
+# run test with python3 -m doctest -v ./tests/[filename].txt
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# SUCCESS CASES:
+
+# Test ints greater than 0 (shouldn't raise error or return anything):
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("checkme", 999)
+
+# FAIL CASES:
+
+# Test non-implemented area method
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     str(e)
+'area() is not implemented'
+
+# Test ints less than or equal to 0:
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", 0)
+... except ValueError as e:
+...     str(e)
+'checkme must be greater than 0'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", -999)
+... except ValueError as e:
+...     str(e)
+'checkme must be greater than 0'
+
+# Test non-ints:
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", None)
+... except TypeError as e:
+...     str(e)
+'checkme must be an integer'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", "hello!")
+... except TypeError as e:
+...     str(e)
+'checkme must be an integer'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", "50")
+... except TypeError as e:
+...     str(e)
+'checkme must be an integer'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", [1, 2, 3])
+... except TypeError as e:
+...     str(e)
+'checkme must be an integer'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", (1, 2, 3))
+... except TypeError as e:
+...     str(e)
+'checkme must be an integer'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", {"key": 1})
+... except TypeError as e:
+...     str(e)
+'checkme must be an integer'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age", True)
+... except TypeError as e:
+...     str(e)
+'age must be an integer'
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("checkme", {3, 4})
+... except TypeError as e:
+...     str(e)
+'checkme must be an integer'
+
+# Test invalid number of arguments:
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator()
+... except TypeError as e:
+...     str(e)
+"integer_validator() missing 2 required positional arguments: 'name' and 'value'"
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.integer_validator("age")
+... except TypeError as e:
+...     str(e)
+"integer_validator() missing 1 required positional argument: 'value'"
