@@ -1,0 +1,14 @@
+add_integer
+===========
+
+>>> add_integer = __import__('0-add_integer').add_integer
+Number
+======
+
+>>> print(add_integer(1, 2))
+3
+>>> print(add_integer(100, -2))
+98
+
+Non-numbers
+===========
