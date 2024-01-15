@@ -62,3 +62,6 @@ class Rectangle(Base):
     def validate_non_negative(self, attr_name, value):
         if value < 0:
             raise ValueError(f"{attr_name} must be >= 0")
+
+    def area(self):
+        return self.width * self.height
