@@ -2,6 +2,7 @@
 """ class Base """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -92,3 +93,37 @@ class Base:
             pass
 
         return list_objs
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        screen = turtle.Screen()
+        screen.title("Drawing Rectangles and Squares")
+        screen.setup(width=800, height=600)
+
+        pen = turtle.Turtle()
+        pen.speed(2)
+
+        for rect in list_rectangles:
+            pen.penup()
+            pen.goto(rect.x - rect.width / 2, rect.y - rect.height / 2)
+            pen.pendown()
+            pen.color("blue")
+            pen.forward(rect.width)
+            pen.right(90)
+            pen.forward(rect.height)
+            pen.right(90)
+            pen.forward(rect.width)
+            pen.right(90)
+            pen.forward(rect.height)
+            pen.right(90)
+
+        for square in list_squares:
+            pen.penup()
+            pen.goto(square.x - square.size / 2, square.y - square.size / 2)
+            pen.pendown()
+            pen.color("red")
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.right(90)
+
+        turtle.done()

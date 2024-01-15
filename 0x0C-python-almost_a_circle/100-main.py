@@ -39,4 +39,3 @@ if __name__ == "__main__":
 
     for square in list_squares_output:
         print("[{}] {}".format(id(square), square))
-        
