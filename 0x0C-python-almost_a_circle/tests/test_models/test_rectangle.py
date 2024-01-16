@@ -3,6 +3,7 @@
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
     def test_constructor(self):
         # Test if the constructor initializes the Rectangle correctly
@@ -22,7 +23,8 @@ class TestRectangle(unittest.TestCase):
         # Test if the display method prints the rectangle correctly
         r = Rectangle(3, 2)
         expected_output = "###\n" + "###\n"
-        with unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as mock_stdout:
+        with (unittest.mock.patch('sys.stdout', new_callable=io.StringIO)
+              as mock_stdout):
             r.display()
             self.assertEqual(mock_stdout.getvalue(), expected_output)
 

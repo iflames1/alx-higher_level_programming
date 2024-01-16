@@ -10,7 +10,8 @@ import os
 class TestBase(unittest.TestCase):
     def setUp(self):
         # Clean up any existing files
-        for filename in ["Rectangle.json", "Square.json", "Rectangle.csv", "Square.csv"]:
+        for filename in ["Rectangle.json", "Square.json", "Rectangle.csv",
+                         "Square.csv"]:
             try:
                 os.remove(filename)
             except FileNotFoundError:
@@ -18,7 +19,8 @@ class TestBase(unittest.TestCase):
 
     def tearDown(self):
         # Clean up any created files after each test
-        for filename in ["Rectangle.json", "Square.json", "Rectangle.csv", "Square.csv"]:
+        for filename in ["Rectangle.json", "Square.json", "Rectangle.csv",
+                         "Square.csv"]:
             try:
                 os.remove(filename)
             except FileNotFoundError:
