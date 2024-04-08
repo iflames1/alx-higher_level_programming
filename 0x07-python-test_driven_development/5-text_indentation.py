@@ -3,19 +3,25 @@
 
 
 def text_indentation(text):
+    """
+    Indents text by adding a new line after periods, question marks, and colons.
+
+    Args:
+        text (str): The text to indent.
+
+    Raises:
+        TypeError: If the input `text` is not a string.
+    """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
     param = ['.', '?', ':']
     index = 0
     while index < len(text):
-        char = text[index]
-        if char in param:
-            print("\n\n", end="")
-            index += 1
-            while index < len(text) and text[index] == ' ':
-                index += 1
+        if not text[index] in param:
+            print(text[index], end='')
 
-        elif char != '\n':
-            print(char, end="")
-        index += 1
+        else:
+            print(f"{text[index]}\n")
+            index += 1
+        index +=1
