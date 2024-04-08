@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" Function """
+""" Function that adds 2 integers."""
 
 
 def add_integer(a, b=98):
-    """_summary_
+    """Adds a  and b
 
     Args:
         a (_type_): _description_
