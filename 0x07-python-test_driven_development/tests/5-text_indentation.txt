@@ -25,27 +25,28 @@ No spaces are printed at the beginning of a line.
 ::
 
     >>> text_indentation("   Hi there.")
-    Hi there.
+       Hi there.
     <BLANKLINE>
 
 ::
 
-    >>> text_indentation("          ")
+    >>> text_indentation("          ") # doctest: +NORMALIZE_WHITESPACE
+    >>>
 
 Similarly, no spaces are printed at the end of each printed line.
 
 ::
 
-    >>> text_indentation("Hello.   ")
+    >>> text_indentation("Hello.   ") # doctest: +NORMALIZE_WHITESPACE
     Hello.
     <BLANKLINE>
 
 ::
 
-    >>> text_indentation("    Woah now.    This is messy.   ")
-    Woah now.
+    >>> text_indentation("    Woah now.    This is messy.   ") # doctest: +NORMALIZE_WHITESPACE
+        Woah now.
     <BLANKLINE>
-    This is messy.
+        This is messy.
     <BLANKLINE>
 
 New lines are only printed for the characters ``.``, ``?``, and ``:`` -
@@ -60,7 +61,7 @@ New lines within a string are printed as normal.
 
 ::
 
-    >>> text_indentation("Let's print a new-line! Here goes:\nPrinted.")
+    >>> text_indentation("Let's print a new-line! Here goes:\nPrinted.") # doctest: +NORMALIZE_WHITESPACE
     Let's print a new-line! Here goes:
     <BLANKLINE>
     <BLANKLINE>
@@ -69,7 +70,7 @@ New lines within a string are printed as normal.
 
 ::
 
-    >>> text_indentation("\n\n\n We just printed three new lines.")
+    >>> text_indentation("\n\n\n We just printed three new lines.") # doctest: +NORMALIZE_WHITESPACE
     <BLANKLINE>
     <BLANKLINE>
     <BLANKLINE>
@@ -77,7 +78,7 @@ New lines within a string are printed as normal.
     <BLANKLINE>
 
 ::
-    >>> text_indentation("A sneaky \n new line.")
+    >>> text_indentation("A sneaky \n new line.") # doctest: +NORMALIZE_WHITESPACE
     A sneaky
     new line.
     <BLANKLINE>
