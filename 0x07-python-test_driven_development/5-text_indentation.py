@@ -23,6 +23,6 @@ def text_indentation(text):
 
         else:
             print(f"{text[index]}\n")
-            if not text[index + 1] in param:
+            if len(text) > index + 2 and not text[index + 1] in param:
                 index += 1
         index += 1
