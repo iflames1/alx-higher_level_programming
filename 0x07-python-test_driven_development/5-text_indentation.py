@@ -4,7 +4,7 @@
 
 def text_indentation(text):
     """
-    Indents text by adding a new line after periods, question marks, and colons.
+    Indents text by adding a new line after periods, question marks, and colons
 
     Args:
         text (str): The text to indent.
@@ -23,5 +23,6 @@ def text_indentation(text):
 
         else:
             print(f"{text[index]}\n")
-            index += 1
-        index +=1
+            if not text[index + 1] in param:
+                index += 1
+        index += 1

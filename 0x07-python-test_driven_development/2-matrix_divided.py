@@ -18,15 +18,15 @@ def matrix_divided(matrix, div):
     Returns (list): Division of list in matrix
     """
     if not isinstance(matrix, list):
-        raise TypeError("matrix must be a matrix (list of lists) of " \
+        raise TypeError("matrix must be a matrix (list of lists) of "
                         "integers/floats")
     if not all(isinstance(row, list)
                and all(isinstance(num, (int, float)) for num in row)
                for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of " \
+        raise TypeError("matrix must be a matrix (list of lists) of "
                         "integers/floats")
     if len(matrix) == 0 or all(len(row) == 0 for row in matrix):
-        raise TypeError("matrix must be a matrix (list of lists) of " \
+        raise TypeError("matrix must be a matrix (list of lists) of "
                         "integers/floats")
 
     if any(len(row) != len(matrix[0]) for row in matrix):
