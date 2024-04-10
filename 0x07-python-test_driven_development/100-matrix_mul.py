@@ -21,8 +21,10 @@ def matrix_mul(m_a, m_b):
     if not all(isinstance(row, list) for row in m_b):
         raise TypeError("m_b must be a list of lists")
 
-    if not all((isinstance(ele, int) or isinstance(ele, float))
-               for ele in [num for row in m_a for num in row]):
+    """ Both condition checks if m_a and m_b element are int or float """
+    if not all(isinstance(row, list)
+               and all(isinstance(num, (int, float)) for num in row)
+               for row in m_a):
         raise TypeError("m_a should contain only integers or floats")
     if not all((isinstance(ele, int) or isinstance(ele, float))
                for ele in [num for row in m_b for num in row]):
