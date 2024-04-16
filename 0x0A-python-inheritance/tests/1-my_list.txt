@@ -22,3 +22,19 @@ MyList doctest
     [1, 2, 3, 4, 5]
     >>> print(my_list)
     [1, 4, 2, 3, 5]
+
+print_sorted also sort negative numbers
+
+::
+    >>> my_list2 = MyList()
+    >>> my_list2.append(-4)
+    >>> my_list2.append(4)
+    >>> my_list2.append(0)
+    >>> my_list2.append(1)
+    >>> my_list2.append(5)
+    >>> print(my_list2)
+    [-4, 4, 0, 1, 5]
+    >>> my_list2.print_sorted()
+    [-4, 0, 1, 4, 5]
+    >>> print(my_list2)
+    [-4, 4, 0, 1, 5]
