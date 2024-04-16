@@ -41,3 +41,55 @@ BaseGeometry doctest
 	...     print("[{}] {}".format(e.__class__.__name__, e))
 	...
 	[TypeError] weight must be an integer
+
+::
+    >>> try:
+    ...     bg.integer_validator("age")
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e)) #doctest: +ELLIPSIS
+    ...
+    [TypeError] BaseGeometry.integer_validator() ... argument: 'value'
+
+::
+    >>> try:
+    ...     bg.integer_validator("age", (4,))
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    ...
+    [TypeError] age must be an integer
+
+::
+    >>> try:
+    ...     bg.integer_validator("age", True)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    ...
+    [TypeError] age must be an integer
+
+::
+    >>> try:
+    ...     bg.integer_validator("age", {3, 4})
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    ...
+    [TypeError] age must be an integer
+
+::
+    >>> try:
+    ...     bg.integer_validator("age", None)
+    ... except Exception as e:
+    ...     print("[{}] {}".format(e.__class__.__name__, e))
+    ...
+    [TypeError] age must be an integer
+
+
+Test for area() method
+
+::
+    >>> Rectangle = __import__('9-rectangle').Rectangle
+    >>>
+    >>> r = Rectangle(3, 5)
+    >>> print(r)
+    [Rectangle] 3/5
+    >>> print(r.area())
+    15
