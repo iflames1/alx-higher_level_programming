@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Search and update"""
+
 
 def append_after(filename="", search_string="", new_string=""):
     """
