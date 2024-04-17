@@ -25,4 +25,4 @@ my_list.extend(sys.argv[1:])
 save_to_json_file(my_list, filename)
 
 # Set permissions for the file
-os.chmod(filename, 0o600)
+os.chmod(filename, 0o744)
