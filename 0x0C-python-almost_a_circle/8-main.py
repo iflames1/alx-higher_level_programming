@@ -10,7 +10,7 @@ if __name__ == "__main__":
     r1.update(height=1)
     print(r1)
 
-    r1.update(11, width=1, x=2)
+    r1.update(width=1, x=2)
     print(r1)
 
     r1.update(y=1, width=2, x=3, id=89)
