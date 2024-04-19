@@ -49,3 +49,11 @@ class Square(Rectangle):
                 elif key == 'y':
                     self.integer_validator("y", val)
                     self.__y = val
+
+    def to_dictionary(self):
+        return {
+            "id": self.id,
+            "size": self.__size,
+            'x': self.__x,
+            'y': self.__y
+            }
