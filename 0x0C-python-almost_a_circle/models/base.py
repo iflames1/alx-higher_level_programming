@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import json
+import csv
 
 
 class Base:
@@ -47,11 +48,26 @@ class Base:
     def save_to_file(cls, list_objs):
         filename = cls.__name__ + ".json"
         with open(filename, "w", encoding="utf-8") as file:
-            if list_objs is None:
+            if list_objs is None or len(list_objs) == 0:
                 file.write("[]")
             else:
                 list_dicts = [objs.to_dictionary() for objs in list_objs]
                 file.write(cls.to_json_string(list_dicts))
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", encoding="utf-8") as file:
+            if list_objs is None or len(list_objs) == 0:
+                file.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(file, fieldnames=fieldnames)
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
 
     @classmethod
     def create(cls, **dictionary):
@@ -69,5 +85,21 @@ class Base:
             with open(filename, "r", encoding="utf-8") as file:
                 list_dicts = cls.from_json_string(file.read())
                 return [cls.create(**dict) for dict in list_dicts]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def load_from_file_csv(cls):
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", encoding="utf-8") as file:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                list_dicts = csv.DictReader(file, fieldnames=fieldnames)
+                list_dicts = [dict([k, int(v)] for k, v in d.items())
+                              for d in list_dicts]
+                return [cls.create(**d) for d in list_dicts]
         except FileNotFoundError:
             return []
