@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 from models.base import Base
 
-
 """
 Represents a rectangle object with properties for width, height, x-coordinate,
 and y-coordinate. Provides methods for calculating the area, displaying the
@@ -10,6 +9,8 @@ rectangle, and updating the rectangle's attributes.
 The Rectangle class inherits from the Base class, which provides common
 functionality for all objects in the system.
 """
+
+
 class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
