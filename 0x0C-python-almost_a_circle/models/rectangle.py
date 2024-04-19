@@ -76,18 +76,34 @@ class Rectangle(Base):
         for _ in range(self.__height):
            print(f"{' ' * self.__x}{'#' * self.__width}")
 
-    def update(self, *args):
-        if len(args) > 0:
+    def update(self, *args, **kwargs):
+        if args is not None and len(args) > 0:
             super().__init__(args[0])
-        if len(args) > 1:
-            self.integer_validator("width", args[1])
-            self.__width = args[1]
-        if len(args) > 2:
-            self.integer_validator("height", args[2])
-            self.__height = args[2]
-        if len(args) > 3:
-            self.integer_validator("x", args[3])
-            self.__x = args[3]
-        if len(args) > 4:
-            self.integer_validator("y", args[4])
-            self.__y = args[4]
+            if len(args) > 1:
+                self.integer_validator("width", args[1])
+                self.__width = args[1]
+            if len(args) > 2:
+                self.integer_validator("height", args[2])
+                self.__height = args[2]
+            if len(args) > 3:
+                self.integer_validator("x", args[3])
+                self.__x = args[3]
+            if len(args) > 4:
+                self.integer_validator("y", args[4])
+                self.__y = args[4]
+        elif kwargs is not None:
+            for key, val in kwargs.items():
+                if key == "id":
+                    super().__init__(val)
+                elif key == "width":
+                    self.integer_validator("width", val)
+                    self.__width = val
+                elif key == "height":
+                    self.integer_validator("height", val)
+                    self.__height = val
+                elif key == 'x':
+                    self.integer_validator("x", val)
+                    self.__x = val
+                elif key == 'y':
+                    self.integer_validator("y", val)
+                    self.__y = val
