@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import json
 
 
 class Base:
@@ -27,3 +28,9 @@ class Base:
             raise ValueError("{} must be >= 0".format(name))
         if name == 'y' and value < 0:
             raise ValueError("{} must be >= 0".format(name))
+
+    def to_json_string(list_dictionaries):
+        if list_dictionaries is None or len(list_dictionaries) == 0:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
