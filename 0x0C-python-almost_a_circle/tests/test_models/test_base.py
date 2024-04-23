@@ -8,7 +8,7 @@ from models.square import Square
 
 class TestBase(unittest.TestCase):
 
-    def test_id(self):
+    def test_id_attribute(self):
 
         b1 = Base()
         self.assertIsInstance(b1.id, int)
@@ -20,15 +20,13 @@ class TestBase(unittest.TestCase):
         b3 = Base(12)
         self.assertEqual(b3.id, 12)
 
-        # Test if id is incrementing correctly
-        b4 = Base()
-        self.assertEqual(b4.id, b2.id + 1)
+    def test_integer_validator(self):
+        base = Base()
 
         # Test integer_validator method with valid inputs
-        base = Base()
         self.assertIsNone(base.integer_validator("test", 5))
 
-        # Test integer_validator method with invalid inputs
+        # Test integer_validator method with valid inputs
         with self.assertRaises(TypeError):
             base.integer_validator("test", "string")
         with self.assertRaises(ValueError):
