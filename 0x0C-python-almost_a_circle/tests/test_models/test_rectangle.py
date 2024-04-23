@@ -30,3 +30,15 @@ class TestRectangle(unittest.TestCase):
     def test_y_less_than_zero(self):
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(5, 5, 0, -1)
+
+    def test_rectangle_area(self):
+        rectangle = Rectangle(3, 4)
+        self.assertEqual(rectangle.area(), 12)
+
+    def test_rectangle_zero_width(self):
+        with self.assertRaises(ValueError):
+            Rectangle(0, 4).area()
+
+    def test_rectangle_zero_height(self):
+        with self.assertRaises(ValueError):
+            Rectangle(3, 0).area()
