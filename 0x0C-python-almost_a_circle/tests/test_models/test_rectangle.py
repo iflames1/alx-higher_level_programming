@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from io import StringIO
+import sys
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -42,3 +44,17 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_zero_height(self):
         with self.assertRaises(ValueError):
             Rectangle(3, 0).area()
+
+    def test_rectangle_str(self):
+        rectangle = Rectangle(3, 4, x=1, y=2, id=10)
+        self.assertEqual(str(rectangle), "[Rectangle] (10) 1/2 - 3/4")
+
+    #def setUp(self):
+    #    self.capturedOutput = StringIO()
+    #    sys.stdout = self.capturedOutput
+
+    #def test_rectangle_display(self):
+    #    rectangle = Rectangle(3, 4, x=1, y=2)
+    #    rectangle.display()
+    #    expected_output = "\n\n  ###\n  ###\n  ###\n"
+    #    self.assertEqual(self.capturedOutput.getvalue(), expected_output)
