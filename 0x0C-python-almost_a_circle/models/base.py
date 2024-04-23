@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import json
-import csv
 
 """
 Initializes a new instance of the Base class.
@@ -12,6 +10,8 @@ Args:
 Returns:
     None
 """
+import json
+import csv
 
 
 class Base:
