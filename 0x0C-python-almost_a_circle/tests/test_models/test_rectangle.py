@@ -58,3 +58,19 @@ class TestRectangle(unittest.TestCase):
     #    rectangle.display()
     #    expected_output = "\n\n  ###\n  ###\n  ###\n"
     #    self.assertEqual(self.capturedOutput.getvalue(), expected_output)
+
+    def test_update_method(self):
+        r = Rectangle(1, 2, 3, 4)
+        r.update(5, 6, 7, 8, 9)
+        self.assertEqual(r.id, 5)
+        self.assertEqual(r.width, 6)
+        self.assertEqual(r.height, 7)
+        self.assertEqual(r.x, 8)
+        self.assertEqual(r.y, 9)
+
+        r.update(id=10, width=11, height=12, x=13, y=14)
+        self.assertEqual(r.id, 10)
+        self.assertEqual(r.width, 11)
+        self.assertEqual(r.height, 12)
+        self.assertEqual(r.x, 13)
+        self.assertEqual(r.y, 14)
