@@ -32,7 +32,7 @@ class Square(Rectangle):
             square. Defaults to 0.
             id (int, optional): The ID of the square. Defaults to None.
         """
-        self.integer_validator("size", size)
+        self.integer_validator("width", size)
         super().__init__(size, size, x, y, id)
         self.__size = size
         self.__x = x
@@ -73,7 +73,7 @@ class Square(Rectangle):
         Returns:
             None
         """
-        self.integer_validator("size", value)
+        self.integer_validator("width", value)
         self.__size = value
 
     def update(self, *args, **kwargs):
