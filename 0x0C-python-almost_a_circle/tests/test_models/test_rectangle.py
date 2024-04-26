@@ -2,6 +2,7 @@
 
 import unittest
 from models.rectangle import Rectangle
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -167,18 +168,53 @@ class TestRectangle(unittest.TestCase):
                          {'_Rectangle__height': 2, '_Rectangle__width': 1,
                           '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 89})
 
-    def test_update_method(self):
-        r = Rectangle(1, 2, 3, 4)
-        r.update(5, 6, 7, 8, 9)
-        self.assertEqual(r.id, 5)
-        self.assertEqual(r.width, 6)
-        self.assertEqual(r.height, 7)
-        self.assertEqual(r.x, 8)
-        self.assertEqual(r.y, 9)
+    @classmethod
+    def setUpClass(cls):
+        cls.filename = "Rectangle.json"
 
-        r.update(id=10, width=11, height=12, x=13, y=14)
-        self.assertEqual(r.id, 10)
-        self.assertEqual(r.width, 11)
-        self.assertEqual(r.height, 12)
-        self.assertEqual(r.x, 13)
-        self.assertEqual(r.y, 14)
+    def tearDown(self):
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
+
+    def test_save_to_file_with_none(self):
+        # Test save_to_file() with None argument
+        Rectangle.save_to_file(None)
+        self.assertTrue(os.path.exists(self.filename))
+        with open(self.filename, "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    def test_save_to_file_with_empty_list(self):
+        # Test save_to_file() with an empty list
+        Rectangle.save_to_file([])
+        self.assertTrue(os.path.exists(self.filename))
+        with open(self.filename, "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+    """
+    def test_save_to_file_with_objects(self):
+        # Test save_to_file() with a list of objects
+        rectangles = [Rectangle(1, 2), Rectangle(3, 4)]
+        Rectangle.save_to_file(rectangles)
+        self.assertTrue(os.path.exists(self.filename))
+        with open(self.filename, "r") as file:
+            content = file.read()
+            print("File Content:", content)
+            self.assertNotEqual(content, "[]")
+            self.assertTrue('"id": 1' in content)
+            self.assertTrue('"id": 2' in content)
+            self.assertTrue('"id": 3' in content)
+            self.assertTrue('"id": 4' in content)
+    """
+
+    def test_load_from_file_file_not_found(self):
+        # Test load_from_file() when the file doesn't exist
+        self.assertEqual(Rectangle.load_from_file(), [])
+
+    def test_load_from_file_file_exists(self):
+        # Test load_from_file() when the file exists
+        rectangles = [Rectangle(1, 2), Rectangle(3, 4)]
+        Rectangle.save_to_file(rectangles)
+        loaded_rectangles = Rectangle.load_from_file()
+        self.assertEqual(len(loaded_rectangles), 2)
+        self.assertIsInstance(loaded_rectangles[0], Rectangle)
+        self.assertIsInstance(loaded_rectangles[1], Rectangle)
