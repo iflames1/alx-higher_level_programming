@@ -73,7 +73,7 @@ class Square(Rectangle):
         Returns:
             None
         """
-        self.integer_validator("width", value)
+        self.integer_validator("size", value)
         self.__size = value
 
     def update(self, *args, **kwargs):
