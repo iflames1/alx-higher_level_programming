@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Initializes a new instance of the Base class.
 
@@ -10,11 +9,13 @@ Args:
 Returns:
     None
 """
+
 import json
 import csv
 
 
 class Base:
+    """ Base of all classes in this project """
     __nb_objects = 0
 
     def __init__(self, id=None):
