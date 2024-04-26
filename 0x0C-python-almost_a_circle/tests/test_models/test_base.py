@@ -63,5 +63,31 @@ class TestBaseToJsonString(unittest.TestCase):
         self.assertEqual(result, expected_result)
 
 
+class TestBaseFromJsonString(unittest.TestCase):
+    def test_none_input(self):
+
+        result = Base.from_json_string(None)
+        self.assertEqual(result, [])
+
+    def test_empty_string_input(self):
+
+        result = Base.from_json_string("")
+        self.assertEqual(result, [])
+
+    def test_single_dict_string(self):
+
+        input_string = '[{ "id": 89 }]'
+        expected_result = [{'id': 89}]
+        result = Base.from_json_string(input_string)
+        self.assertEqual(result, expected_result)
+
+    def test_multiple_dict_string(self):
+
+        input_string = '[{ "id": 89 }, { "id": 90 }]'
+        expected_result = [{'id': 89}, {'id': 90}]
+        result = Base.from_json_string(input_string)
+        self.assertEqual(result, expected_result)
+
+
 if __name__ == "__main__":
     unittest.main()
