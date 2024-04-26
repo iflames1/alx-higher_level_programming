@@ -128,6 +128,27 @@ class TestRectangle(unittest.TestCase):
         expected_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 3, 'y': 4}
         self.assertEqual(rect.to_dictionary(), expected_dict)
 
+    def test_update_with_args(self):
+        rect = Rectangle(5, 10, 3, 4, 1)
+        rect.update(89)
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 10, '_Rectangle__width': 5,
+                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 89})
+
+    def test_update_with_multiple_args(self):
+        rect = Rectangle(5, 10, 3, 4, 1)
+        rect.update(89, 1, 2, 3, 4)
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 2, '_Rectangle__width': 1,
+                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 89})
+
+    def test_update_with_kwargs(self):
+        rect = Rectangle(5, 10, 3, 4, 1)
+        rect.update(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 2, '_Rectangle__width': 1,
+                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 89})
+
     def test_update_method(self):
         r = Rectangle(1, 2, 3, 4)
         r.update(5, 6, 7, 8, 9)
