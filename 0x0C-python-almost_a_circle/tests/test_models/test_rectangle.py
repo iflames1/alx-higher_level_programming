@@ -7,6 +7,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestRectangle(unittest.TestCase):
 
     def test_rectangle_area(self):
@@ -49,15 +50,17 @@ class TestRectangle(unittest.TestCase):
         rectangle = Rectangle(3, 4, x=1, y=2, id=10)
         self.assertEqual(str(rectangle), "[Rectangle] (10) 1/2 - 3/4")
 
-    #def setUp(self):
-    #    self.capturedOutput = StringIO()
-    #    sys.stdout = self.capturedOutput
+    """
+    def setUp(self):
+        self.capturedOutput = StringIO()
+        sys.stdout = self.capturedOutput
 
-    #def test_rectangle_display(self):
-    #    rectangle = Rectangle(3, 4, x=1, y=2)
-    #    rectangle.display()
-    #    expected_output = "\n\n  ###\n  ###\n  ###\n"
-    #    self.assertEqual(self.capturedOutput.getvalue(), expected_output)
+    def test_rectangle_display(self):
+        rectangle = Rectangle(3, 4, x=1, y=2)
+        rectangle.display()
+        expected_output = "\n\n  ###\n  ###\n  ###\n"
+        self.assertEqual(self.capturedOutput.getvalue(), expected_output)
+    """
 
     def test_update_method(self):
         r = Rectangle(1, 2, 3, 4)

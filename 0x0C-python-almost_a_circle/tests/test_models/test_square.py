@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 
-#!/usr/bin/python3
-
 from io import StringIO
 import sys
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+
 
 class TestSquare(unittest.TestCase):
 
@@ -49,4 +48,3 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square.size, 20)
         self.assertEqual(square.x, 12)
         self.assertEqual(square.y, 9)
-
