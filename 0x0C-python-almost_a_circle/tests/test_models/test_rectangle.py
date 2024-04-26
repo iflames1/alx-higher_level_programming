@@ -149,6 +149,24 @@ class TestRectangle(unittest.TestCase):
                          {'_Rectangle__height': 2, '_Rectangle__width': 1,
                           '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 89})
 
+    def test_create_with_id(self):
+        rect = Rectangle.create(**{'id': 89})
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 1, '_Rectangle__width': 1,
+                          '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 89})
+
+    def test_create_with_width_height(self):
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 2, '_Rectangle__width': 1,
+                          '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 89})
+
+    def test_create_with_all_arguments(self):
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 2, '_Rectangle__width': 1,
+                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 89})
+
     def test_update_method(self):
         r = Rectangle(1, 2, 3, 4)
         r.update(5, 6, 7, 8, 9)
