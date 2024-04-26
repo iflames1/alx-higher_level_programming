@@ -34,7 +34,6 @@ class Square(Rectangle):
         """
         self.integer_validator("width", size)
         super().__init__(size, size, x, y, id)
-        self.__size = size
         self.__x = x
         self.__y = y
 
@@ -47,7 +46,7 @@ class Square(Rectangle):
         corner of the square, and size is the dimension of the square.
         :rtype: str
         """
-        return f"[Square] ({self.id}) {self.__x}/{self.__y} - {self.__size}"
+        return f"[Square] ({self.id}) {self.__x}/{self.__y} - {self.width}"
 
     @property
     def size(self):
@@ -57,7 +56,7 @@ class Square(Rectangle):
         Returns:
             int: The size of the square.
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -74,7 +73,7 @@ class Square(Rectangle):
             None
         """
         self.integer_validator("width", value)
-        self.__size = value
+        self.width = value
 
     def update(self, *args, **kwargs):
         """
@@ -94,7 +93,7 @@ class Square(Rectangle):
             self.id = args[0]
             if len(args) > 1:
                 self.integer_validator("size", args[1])
-                self.__size = args[1]
+                self.width = args[1]
             if len(args) > 2:
                 self.integer_validator('x', args[2])
                 self.__x = args[2]
@@ -108,7 +107,7 @@ class Square(Rectangle):
                     self.id = val
                 elif key == "size":
                     self.integer_validator("size", val)
-                    self.__size = val
+                    self.width = val
                 elif key == 'x':
                     self.integer_validator("x", val)
                     self.__x = val
@@ -126,7 +125,7 @@ class Square(Rectangle):
         """
         return {
             "id": self.id,
-            "size": self.__size,
+            "size": self.width,
             'x': self.__x,
             'y': self.__y
             }
