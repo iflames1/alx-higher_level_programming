@@ -8,7 +8,6 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
-    """ Test Base class """
 
     def test_id_not_none(self):
 
@@ -35,6 +34,33 @@ class TestBase(unittest.TestCase):
         self.assertEqual(obj.id, 89)
         obj1 = Base()
         self.assertEqual(obj1.id, 6)
+
+
+class TestBaseToJsonString(unittest.TestCase):
+
+    def test_none_input(self):
+
+        result = Base.to_json_string(None)
+        self.assertEqual(result, "[]")
+
+    def test_empty_list(self):
+
+        result = Base.to_json_string([])
+        self.assertEqual(result, "[]")
+
+    def test_single_dict_list(self):
+
+        input_data = [{'id': 12}]
+        expected_result = '[{"id": 12}]'
+        result = Base.to_json_string(input_data)
+        self.assertEqual(result, expected_result)
+
+    def test_multiple_dict_list(self):
+
+        input_data = [{'id': 12}, {'id': 15}]
+        expected_result = '[{"id": 12}, {"id": 15}]'
+        result = Base.to_json_string(input_data)
+        self.assertEqual(result, expected_result)
 
 
 if __name__ == "__main__":
