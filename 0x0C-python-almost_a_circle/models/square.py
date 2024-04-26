@@ -89,8 +89,9 @@ class Square(Rectangle):
         Returns:
             None
         """
-        if args is not None and len(args) > 0:
-            self.id = args[0]
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
             if len(args) > 1:
                 self.integer_validator("size", args[1])
                 self.width = args[1]
@@ -101,7 +102,7 @@ class Square(Rectangle):
                 self.integer_validator('y', args[3])
                 self.__y = args[3]
 
-        elif kwargs is not None:
+        elif kwargs:
             for key, val in kwargs.items():
                 if key == "id":
                     self.id = val

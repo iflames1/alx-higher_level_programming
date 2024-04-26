@@ -201,8 +201,9 @@ class Rectangle(Base):
         Returns:
             None
         """
-        if args is not None and len(args) > 0:
-            self.id = args[0]
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
             if len(args) > 1:
                 self.integer_validator("width", args[1])
                 self.__width = args[1]
@@ -216,7 +217,7 @@ class Rectangle(Base):
                 self.integer_validator('y', args[4])
                 self.__y = args[4]
 
-        elif kwargs is not None:
+        elif kwargs:
             for key, val in kwargs.items():
                 if key == "id":
                     self.id = val
