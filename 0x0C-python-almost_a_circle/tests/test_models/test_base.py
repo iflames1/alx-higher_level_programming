@@ -33,6 +33,8 @@ class TestBase(unittest.TestCase):
     def test_custom_id(self):
         obj = Base(89)
         self.assertEqual(obj.id, 89)
+        obj1 = Base()
+        self.assertEqual(obj1.id, 6)
 
 
 if __name__ == "__main__":
