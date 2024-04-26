@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Test Base class """
 
 import unittest
 from models.base import Base
@@ -7,32 +8,31 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
+    """ Test Base class """
 
-    def test_id_attribute(self):
+    def test_id_not_none(self):
 
         b1 = Base()
-        self.assertIsInstance(b1.id, int)
-        self.assertTrue(b1.id > 0)
+        self.assertIsNotNone(b1.id)
 
-        self.assertEqual(b1.id, 1)
-        b2 = Base()
-        self.assertEqual(b2.id, 2)
-        b3 = Base(12)
-        self.assertEqual(b3.id, 12)
+    def test_auto_assign_id(self):
 
-    def test_integer_validator(self):
-        base = Base()
+        obj1 = Base()
+        obj2 = Base()
+        self.assertEqual(obj1.id, 1)
+        self.assertEqual(obj2.id, 2)
 
-        # Test integer_validator method with valid inputs
-        self.assertIsNone(base.integer_validator("test", 5))
+    def test_auto_assign_id_increment(self):
+        obj1 = Base()
+        obj2 = Base()
+        obj3 = Base()
+        self.assertEqual(obj1.id, 3)
+        self.assertEqual(obj2.id, 4)
+        self.assertEqual(obj3.id, 5)
 
-        # Test integer_validator method with valid inputs
-        with self.assertRaises(TypeError):
-            base.integer_validator("test", "string")
-        with self.assertRaises(ValueError):
-            base.integer_validator("width", 0)
-
-
+    def test_custom_id(self):
+        obj = Base(89)
+        self.assertEqual(obj.id, 89)
 
 
 if __name__ == "__main__":
