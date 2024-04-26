@@ -1,11 +1,7 @@
 #!/usr/bin/python3
 
-from io import StringIO
-import sys
 import unittest
-from models.base import Base
 from models.rectangle import Rectangle
-from models.square import Square
 
 
 class TestRectangle(unittest.TestCase):
