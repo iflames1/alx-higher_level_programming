@@ -44,3 +44,31 @@ class TestSquare(unittest.TestCase):
         sqr = Square(5, 10, 3, 4)
         expected_string = "[Square] (4) 10/3 - 5"
         self.assertEqual(str(sqr), expected_string)
+
+    def test_to_dictionary(self):
+        sqr = Square(5, 10, 4, 1)
+        expected_dict = {'id': 1, 'size': 5, 'x': 10, 'y': 4}
+        self.assertEqual(sqr.to_dictionary(), expected_dict)
+
+    """
+    def test_update_with_args(self):
+        sqr = Square(5, 3, 4, 1)
+        sqr.update(89)
+        self.assertEqual(sqr.__dict__,
+                         {'_Square__width': 5,
+                          '_Square__x': 3, '_Square__y': 4, 'id': 89})
+
+    def test_update_with_multiple_args(self):
+        sqr = Square(5, 3, 4, 1)
+        sqr.update(89, 1, 3, 4)
+        self.assertEqual(sqr.__dict__,
+                         {'_Square__size': 1,
+                          '_Square__x': 3, '_Square__y': 4, 'id': 89})
+
+    def test_update_with_kwargs(self):
+        sqr = Square(5, 10, 3, 1)
+        sqr.update(**{'id': 89, 'size': 1, 'x': 3, 'y': 4})
+        self.assertEqual(sqr.__dict__,
+                         {'_Square__width': 1,
+                          '_Square__x': 3, '_Square__y': 4, 'id': 89})
+    """
