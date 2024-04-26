@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-from models.base import Base
 
 """
 Represents a rectangle object with properties for width, height, x-coordinate,
@@ -9,6 +8,7 @@ rectangle, and updating the rectangle's attributes.
 The Rectangle class inherits from the Base class, which provides common
 functionality for all objects in the system.
 """
+from models.base import Base
 
 
 class Rectangle(Base):
