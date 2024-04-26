@@ -10,6 +10,52 @@ from models.square import Square
 
 class TestRectangle(unittest.TestCase):
 
+    def test_valid_arguments(self):
+
+        rect = Rectangle(1, 2)
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 2, '_Rectangle__width': 1,
+                          '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 17})
+
+    def test_valid_arguments_with_coordinates(self):
+
+        rect = Rectangle(1, 2, 3, 4)
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 2, '_Rectangle__width': 1,
+                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 18})
+
+    def test_invalid_type_arguments(self):
+
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
+
+    def test_invalid_value_arguments(self):
+
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, 3, -4)
+
+    def test_too_many_arguments(self):
+        rect = Rectangle(1, 2, 3, 4, 5)
+        self.assertEqual(rect.__dict__,
+                         {'_Rectangle__height': 2, '_Rectangle__width': 1,
+                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 5})
+
     def test_rectangle_area(self):
         rect = Rectangle(3, 4)
         self.assertEqual(rect.area(), 12)
