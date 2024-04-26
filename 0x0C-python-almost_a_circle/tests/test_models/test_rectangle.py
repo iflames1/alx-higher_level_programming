@@ -111,6 +111,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.capturedOutput.getvalue(), expected_output)
     """
 
+    def test_display_without_x_y(self):
+        rect = Rectangle(5, 10)
+        rect.display()
+
+    def test_display_without_y(self):
+        rect = Rectangle(5, 10, 3)
+        rect.display()
+
+    def test_display(self):
+        rect = Rectangle(5, 10, 3, 4)
+        rect.display()
+
+    def test_to_dictionary(self):
+        rect = Rectangle(5, 10, 3, 4, 1)
+        expected_dict = {'id': 1, 'width': 5, 'height': 10, 'x': 3, 'y': 4}
+        self.assertEqual(rect.to_dictionary(), expected_dict)
+
     def test_update_method(self):
         r = Rectangle(1, 2, 3, 4)
         r.update(5, 6, 7, 8, 9)
