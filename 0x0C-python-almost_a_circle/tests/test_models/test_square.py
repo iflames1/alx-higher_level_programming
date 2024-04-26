@@ -35,3 +35,12 @@ class TestSquare(unittest.TestCase):
             Square(1, 2, -3)
         with self.assertRaises(ValueError):
             Square(0)
+
+    def test_area(self):
+        sqr = Square(3)
+        self.assertEqual(sqr.area(), 9)
+
+    def test_str(self):
+        sqr = Square(5, 10, 3, 4)
+        expected_string = "[Square] (4) 10/3 - 5"
+        self.assertEqual(str(sqr), expected_string)
