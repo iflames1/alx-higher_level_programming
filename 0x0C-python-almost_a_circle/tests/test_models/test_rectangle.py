@@ -15,14 +15,14 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(1, 2)
         self.assertEqual(rect.__dict__,
                          {'_Rectangle__height': 2, '_Rectangle__width': 1,
-                          '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 17})
+                          '_Rectangle__x': 0, '_Rectangle__y': 0, 'id': 18})
 
     def test_valid_arguments_with_coordinates(self):
 
         rect = Rectangle(1, 2, 3, 4)
         self.assertEqual(rect.__dict__,
                          {'_Rectangle__height': 2, '_Rectangle__width': 1,
-                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 18})
+                          '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 19})
 
     def test_invalid_type_arguments(self):
 
@@ -56,9 +56,14 @@ class TestRectangle(unittest.TestCase):
                          {'_Rectangle__height': 2, '_Rectangle__width': 1,
                           '_Rectangle__x': 3, '_Rectangle__y': 4, 'id': 5})
 
-    def test_rectangle_area(self):
+    def test_area(self):
         rect = Rectangle(3, 4)
         self.assertEqual(rect.area(), 12)
+
+    def test_str(self):
+        rect = Rectangle(5, 10, 3, 4, 1)
+        expected_string = "[Rectangle] (1) 3/4 - 5/10"
+        self.assertEqual(str(rect), expected_string)
 
     def test_invalid_type(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
