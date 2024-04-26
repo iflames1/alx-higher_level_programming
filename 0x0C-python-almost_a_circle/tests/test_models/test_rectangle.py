@@ -24,7 +24,6 @@ class TestRectangle(unittest.TestCase):
     """
 
     def test_invalid_type_arguments(self):
-
         with self.assertRaises(TypeError):
             Rectangle("1", 2)
         with self.assertRaises(TypeError):
@@ -35,7 +34,6 @@ class TestRectangle(unittest.TestCase):
             Rectangle(1, 2, 3, "4")
 
     def test_invalid_value_arguments(self):
-
         with self.assertRaises(ValueError):
             Rectangle(-1, 2)
         with self.assertRaises(ValueError):

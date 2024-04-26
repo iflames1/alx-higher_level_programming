@@ -6,17 +6,32 @@ from models.square import Square
 
 class TestSquare(unittest.TestCase):
 
-    def test_square_initialization(self):
-        s = Square(5)
-        self.assertEqual(s.size, 5)
-        self.assertEqual(s.x, 0)
-        self.assertEqual(s.y, 0)
+    def test_valid_arguments(self):
+        s1 = Square(1)
+        self.assertEqual(s1.size, 1)
+        s2 = Square(1, 2)
+        self.assertEqual(s2.x, 2)
+        s3 = Square(1, 2, 3)
+        self.assertEqual(s3.y, 3)
+        s4 = Square(1, 2, 3, 4)
+        self.assertEqual(s4.id, 4)
 
-    def test_square_size_setter(self):
-        s = Square(5)
-        s.size = 10
-        self.assertEqual(s.size, 10)
+    def test_invalid_type_arguments(self):
+        with self.assertRaises(TypeError):
+            Square("1", 2)
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
 
-    def test_square_str_representation(self):
-        s = Square(5, 2, 3, 1)
-        self.assertEqual(str(s), "[Square] (1) 2/3 - 5")
+    def test_invalid_value_arguments(self):
+        with self.assertRaises(ValueError):
+            Square(-1, 2)
+        with self.assertRaises(ValueError):
+            Square(1, -2)
+        with self.assertRaises(ValueError):
+            Square(0, 2)
+        with self.assertRaises(ValueError):
+            Square(1, 2, -3)
+        with self.assertRaises(ValueError):
+            Square(0)
