@@ -2,7 +2,7 @@
 -- temperature in descending order
 SELECT
     state,
-    MAX(temperature) as max_temp
+    MAX(value) as max_temp
 FROM
     temperatures
 GROUP BY
