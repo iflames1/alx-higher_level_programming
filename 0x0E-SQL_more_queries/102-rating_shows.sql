@@ -9,4 +9,4 @@ JOIN
 GROUP BY
     tv_shows.title
 ORDER BY
-    rating_sum DESC;
+    rating DESC;
