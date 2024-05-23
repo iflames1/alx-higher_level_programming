@@ -1,7 +1,7 @@
 -- script that lists all genres in the database hbtn_0d_tvshows_rate by their rating.
 SELECT
     tv_genres.name,
-    SUM(tv_show_ratings.rate) AS rating_sum
+    SUM(tv_show_ratings.rate) AS rating
 FROM
     tv_genres
 JOIN
@@ -11,4 +11,4 @@ JOIN
 GROUP BY
     tv_genres.name
 ORDER BY
-    rating_sum DESC;
+    rating DESC;
