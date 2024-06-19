@@ -2,7 +2,7 @@
 
 const num = Number(process.argv[2]);
 
-function factorial(num) {
+function factorial (num) {
   if (Number.isNaN(num) || num === 1) {
     return 1;
   } else {
