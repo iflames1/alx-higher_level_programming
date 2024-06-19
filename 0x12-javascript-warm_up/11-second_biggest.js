@@ -2,9 +2,9 @@
 
 const args = process.argv.slice(2);
 
-if (args.length <= 3) {
+if (args.length < 2) {
   console.log(0);
 } else {
-  args.sort();
-  console.log(args.reverse()[1]);
+  args.sort((a, b) => b - a);
+  console.log(args[1]);
 }
