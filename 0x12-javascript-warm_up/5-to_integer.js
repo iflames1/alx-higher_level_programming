@@ -2,10 +2,10 @@
 
 const args = process.argv.slice(2);
 
-let number = Number(args[0]);
+const number = Number(args[0]);
 
-if (typeof number === "number") {
-  console.log(`My number: ${number}`);
+if (Number.isNaN(number)) {
+  console.log('Not a number');
 } else {
-  console.log("Not a number");
+  console.log(`My number: ${number}`);
 }
