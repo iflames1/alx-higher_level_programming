@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const occurrences = Number(process.argv.slice(2)[0]);
+const occurrences = Number(process.argv[2]);
 
 if (Number.isNaN(occurrences)) {
   console.log('Missing number of occurrences');
