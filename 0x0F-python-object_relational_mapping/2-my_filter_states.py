@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # Create a cursor object
     cursor = db.cursor()
 
-    query = f"""SELECT * FROM states WHERE name = '{sys.argv[4]}'
+    query = f"""SELECT * FROM states WHERE name LIKE BINARY '{sys.argv[4]}'
     ORDER BY id ASC"""
 
     # Execute the query
