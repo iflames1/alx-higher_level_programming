@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" lists all row from the database """
 import MySQLdb
 import sys
 
@@ -10,7 +11,8 @@ if __name__ == "__main__":
     database_name = sys.argv[3]
 
     # Connect to the MySQL database
-    db = MySQLdb.connect(host="localhost", port=3306, user=mysql_username, passwd=mysql_password, db=database_name)
+    db = MySQLdb.connect(host="localhost", port=3306, user=mysql_username,
+                         passwd=mysql_password, db=database_name)
 
     # Create a cursor object
     cursor = db.cursor()
