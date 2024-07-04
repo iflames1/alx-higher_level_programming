@@ -13,7 +13,7 @@ USERNAME=$2
 REMOTE_HOST=$3
 
 # Use scp to transfer the file to the server's home directory
-scp $LOCAL_FILE_PATH $USERNAME@$REMOTE_HOST:~/flames/
+scp $LOCAL_FILE_PATH $USERNAME@$REMOTE_HOST:~/0x10/
 
 # Check if scp was successful
 if [ $? -eq 0 ]; then
