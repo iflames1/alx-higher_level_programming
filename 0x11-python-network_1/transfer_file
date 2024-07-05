@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# transfers a file from our client to a server
+
+# Check if the number of parameters is less than 4
+if [ "$#" -lt 3 ]; then
+    echo "Usage: ./transfer_file LOCAL_FILE_PATH USERNAME REMOTE_HOST"
+    exit 1
+fi
+
+# Assign parameters to variables
+LOCAL_FILE_PATH=$1
+USERNAME=$2
+REMOTE_HOST=$3
+
+# Use scp to transfer the file to the server's home directory
+scp $LOCAL_FILE_PATH $USERNAME@$REMOTE_HOST:~/0x11/
+
+# Check if scp was successful
+if [ $? -eq 0 ]; then
+    echo "File transfer successful."
+else
+    echo "File transfer failed."
+fi
